@@ -17,7 +17,7 @@ public class ContactBook {
     public boolean addContact(String name, ArrayList<String> details) {
 
 
-        // if there isn't an entry for the contact yet we can add it
+        // if there isn't an entry for the contact we can add it
         if (getContact(name) == null) {
             savedContacts.put(name, details);
             return true;
