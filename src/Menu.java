@@ -60,7 +60,7 @@ public class Menu {
 
             switch (userInput) {
 
-                // Add Contact
+                // Add Contactz
                 case 1:
 
                     ArrayList<String> contactDetails = new ArrayList<>();
