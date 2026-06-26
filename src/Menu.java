@@ -68,8 +68,10 @@ public class Menu {
                     System.out.print("Contact name: ");
                     String name = scanner.nextLine();
 
-                    contactDetails.add(name);
-
+                    if (!contactDetails.add(name)) {
+                        System.out.println("Contact already exists");
+                        break;
+                    }
 
                     System.out.print("Contact Address: ");
                     String address = scanner.nextLine();
@@ -83,6 +85,8 @@ public class Menu {
                     contactDetails.add(food);
 
 
+
+
                     contactBook.addContact(name, contactDetails);
                     System.out.println("Contact (" + name + ") succesfully added.");
                     break; // exit loop to allow for another option
@@ -90,15 +94,36 @@ public class Menu {
 
                 // Display all contacts
                 case 2:
-                    System.out.print("Displaying saved contacts: ");
+                    System.out.println("Displaying saved contacts: ");
+                    System.out.println(contactBook.getAllContacts());
+
+                    break;
+
 
                 // Search contact
                 case 3:
-                    System.out.print("Contact name: ");
+                    System.out.println("Contact name: ");
+                    name = scanner.nextLine();
+
+                    if (contactBook.getContact(name) == null) {
+                        System.out.println("Contact not found");
+                        break;
+                    }
+
+                    System.out.println(name + "'s details: ");
+
+
+                    for (String i : contactBook.getContact(name)) {
+                        System.out.println(i);
+                    }
+
+                    break;
 
                 // Remove Contact
                 case 4:
                     System.out.print("Contact name: ");
+                    name = scanner.nextLine();
+                    contactBook.removeContact(name);
 
                 // Exit out of interface
                 case 5:
